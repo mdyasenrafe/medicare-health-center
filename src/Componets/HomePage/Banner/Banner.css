@@ -1,0 +1,26 @@
+.banner {
+  z-index: 1;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.678) 100%,
+      rgba(0, 0, 0, 0.582) 100%
+    ),
+    url(../../../Images/banner/bhmg-north-doctor-with-patient-1900x1258.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.banner-text {
+  padding: 150px 0;
+}
+.banner-heading-text {
+  font-size: 39px;
+  font-weight: bolder;
+}
+@media screen and (min-width: 780px) {
+  .banner-heading-text {
+    font-size: 50px;
+  }
+  .banner-parragraph-text {
+    width: 50%;
+  }
+}
