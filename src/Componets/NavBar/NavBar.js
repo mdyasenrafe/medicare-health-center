@@ -1,8 +1,10 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
+import UseAuth from "../../Hooks/UseAuth";
 
 const NavBar = () => {
+  const { user } = UseAuth();
   return (
     <Navbar bg="light" expand="lg" sticky="top">
       <Container>
@@ -37,12 +39,24 @@ const NavBar = () => {
             <LinkContainer to="/contact">
               <Nav.Link>Contact</Nav.Link>
             </LinkContainer>
-            <LinkContainer to="/signin">
-              <Nav.Link>Sign in</Nav.Link>
-            </LinkContainer>
-            <LinkContainer to="/signup">
-              <Nav.Link>Sign Up</Nav.Link>
-            </LinkContainer>
+            {user?.displayName ? (
+              <div className="d-flex align-items-center ms-3">
+                <span>{user?.displayName}</span>
+                <button className="btn btn-danger rounded-pill">
+                  Sign Out
+                </button>
+              </div>
+            ) : (
+              <>
+                {" "}
+                <LinkContainer to="/signin">
+                  <Nav.Link>Sign in</Nav.Link>
+                </LinkContainer>
+                <LinkContainer to="/signup">
+                  <Nav.Link>Sign Up</Nav.Link>
+                </LinkContainer>
+              </>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -27,16 +27,16 @@ const Signup = () => {
   password.current = watch("password", "");
   const onSubmit = (data) => {
     console.log(data);
-    createAceountWithEmail(data.email, data.password);
-    // createAceountWithEmail(data.email, data.password)
-    //   .then((result) => {
-    //     setUser(result.user);
-    //     updataeUser(data.name);
-    //   })
-    //   .catch((error) => {
-    //     setError(error.message);
-    //   })
-    //   .finally(() => setIsLoading(false));
+    createAceountWithEmail(data.email, data.password)
+      .then((result) => {
+        setUser(result.user);
+        updataeUser(data.name);
+        setError("");
+      })
+      .catch((error) => {
+        setError(error.message);
+      })
+      .finally(() => setIsLoading(false));
   };
   return (
     <section className="py-5">

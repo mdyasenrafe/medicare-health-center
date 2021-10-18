@@ -21,15 +21,16 @@ const UseFirebase = () => {
   // create aceount with email
   const createAceountWithEmail = (email, password) => {
     setIsLoading(true);
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((result) => {
-        setUser(result.user);
-        updataeUser(result.user.displayName);
-      })
-      .catch((error) => {
-        setError(error.message);
-      })
-      .finally(() => setIsLoading(false));
+    return createUserWithEmailAndPassword(auth, email, password);
+    // .then((result) => {
+    //   setUser(result.user);
+    //   updataeUser(result.user.displayName);
+
+    // })
+    // .catch((error) => {
+    //   setError(error.message);
+    // })
+    // .finally(() => setIsLoading(false));
   };
 
   // sign with emaial
@@ -71,7 +72,7 @@ const UseFirebase = () => {
       }
       setIsLoading(false);
     });
-  }, []);
+  }, [user]);
 
   return {
     user,
