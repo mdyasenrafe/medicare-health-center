@@ -86,7 +86,7 @@ const Signup = () => {
           </Col>
           <Col sm={12} md={6}>
             <Fade right cascade>
-              <div>
+              <div className="py-5">
                 <Form onSubmit={handleSubmit(onSubmit)}>
                   <FloatingLabel
                     controlId="floatingInput"

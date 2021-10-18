@@ -62,7 +62,7 @@ const Login = () => {
         <Row className="align-items-center flex-row-reverse">
           <Col sm={12} md={6}>
             <Fade right cascade>
-              <img className="w-100" src={image} alt="" />
+              <img className="w-100 pb-5" src={image} alt="" />
             </Fade>
           </Col>
           <Col sm={12} md={6}>
