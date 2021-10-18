@@ -1,5 +1,5 @@
 import React from "react";
-import { useForm } from "react-hook-form";
+import { set, useForm } from "react-hook-form";
 import { Container, Form, Row, Col, FloatingLabel } from "react-bootstrap";
 import image from "../../Images/signin.png";
 import { Link } from "react-router-dom";
@@ -10,7 +10,20 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {};
+  const { setUser, error, setError, setIsLoading, signWithEmail } = UseAuth();
+  const onSubmit = (data) => {
+    signWithEmail(data.email, data.password)
+      .then((result) => {
+        setUser(result?.user);
+        setError("");
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        setError(error.message);
+        console.log(error);
+      })
+      .finally(() => setIsLoading(false));
+  };
   return (
     <section>
       <Container>
@@ -51,6 +64,7 @@ const Login = () => {
               {errors.password?.type === "required" && (
                 <span className="text-danger my-3">This field is required</span>
               )}
+              {error && <p className="my-3 text-danger">{error}</p>}
               <input
                 type="submit"
                 className="btn btn-outline-danger my-4 w-100 d-block"

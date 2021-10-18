@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { Container, FloatingLabel, Form, Row, Col } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import UseAuth from "../../Hooks/UseAuth";
 import img from "../../Images/signup.jpg";
 
@@ -20,21 +20,29 @@ const Signup = () => {
     setError,
     setIsLoading,
     createAceountWithEmail,
-    updataeUser,
+    updateProfileEmail,
   } = UseAuth();
 
   const password = useRef({});
   password.current = watch("password", "");
+
+  let history = useHistory();
+  let location = useLocation();
+  const redirectUrl = location.pathname?.state?.from || "/home";
   const onSubmit = (data) => {
     console.log(data);
     createAceountWithEmail(data.email, data.password)
       .then((result) => {
-        setUser(result.user);
-        updataeUser(data.name);
-        setError("");
+        updateProfileEmail(data.name);
+        history.push(redirectUrl);
+        setIsLoading(false);
+        const user = result.user;
+        setUser(user);
       })
       .catch((error) => {
-        setError(error.message);
+        const errorMessage = error.message;
+        console.log(errorMessage);
+        setError(errorMessage);
       })
       .finally(() => setIsLoading(false));
   };
@@ -136,6 +144,7 @@ const Signup = () => {
                   The passwords do not match
                 </span>
               )}
+              {error && <p className="my-3 text-danger">{error}</p>}
               <input
                 type="submit"
                 className="btn btn-outline-danger w-100 d-block my-4"

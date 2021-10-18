@@ -4,7 +4,7 @@ import { LinkContainer } from "react-router-bootstrap";
 import UseAuth from "../../Hooks/UseAuth";
 
 const NavBar = () => {
-  const { user } = UseAuth();
+  const { user, logOut } = UseAuth();
   return (
     <Navbar bg="light" expand="lg" sticky="top">
       <Container>
@@ -42,7 +42,10 @@ const NavBar = () => {
             {user?.displayName ? (
               <div className="d-flex align-items-center ms-3">
                 <span>{user?.displayName}</span>
-                <button className="btn btn-danger rounded-pill">
+                <button
+                  onClick={logOut}
+                  className="btn btn-danger rounded-pill"
+                >
                   Sign Out
                 </button>
               </div>

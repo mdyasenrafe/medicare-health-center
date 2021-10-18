@@ -14,6 +14,7 @@ firebaseInitAuth();
 const UseFirebase = () => {
   const [user, setUser] = useState({});
   const [error, setError] = useState("");
+  const [firebaseError, setFirebaseError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const auth = getAuth();
@@ -39,7 +40,7 @@ const UseFirebase = () => {
     return signInWithEmailAndPassword(auth, email, password);
   };
   // update profile
-  const updataeUser = (name) => {
+  const updateProfileEmail = (name) => {
     updateProfile(auth.currentUser, {
       displayName: name,
     })
@@ -47,7 +48,7 @@ const UseFirebase = () => {
         setUser(res.user);
       })
       .catch((error) => {
-        setError(error.message);
+        setFirebaseError(error.message);
       });
   };
 
@@ -56,9 +57,12 @@ const UseFirebase = () => {
     setIsLoading(true);
     const auth = getAuth();
     signOut(auth)
-      .then(() => {})
+      .then(() => {
+        setUser({});
+        setIsLoading(false);
+      })
       .catch((error) => {
-        console.log(error);
+        setError(error.message);
       })
       .finally(() => setIsLoading(false));
   };
@@ -72,7 +76,7 @@ const UseFirebase = () => {
       }
       setIsLoading(false);
     });
-  }, [user]);
+  }, []);
 
   return {
     user,
@@ -84,7 +88,7 @@ const UseFirebase = () => {
     createAceountWithEmail,
     signWithEmail,
     logOut,
-    updataeUser,
+    updateProfileEmail,
   };
 };
 
