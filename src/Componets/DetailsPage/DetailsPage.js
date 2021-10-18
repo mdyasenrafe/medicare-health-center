@@ -15,7 +15,7 @@ const DetailsPage = () => {
             <span>What is </span>
             <span className="text-danger">{findService?.name}</span>
           </h1>
-          <img src={findService?.photo1} alt="" />
+          <img className="w-100" src={findService?.photo1} alt="" />
         </div>
         <p>{findService?.fullDescription}</p>
         <div>
