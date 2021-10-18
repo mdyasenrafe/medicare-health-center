@@ -1,50 +1,62 @@
 import React from "react";
 import { Col, Container, FloatingLabel, Form, Row } from "react-bootstrap";
+import Fade from "react-reveal/Fade";
+import Flip from "react-reveal/Flip";
 import image from "../../../Images/contact.png";
 
 const Contact = () => {
   return (
     <section className="py-5">
-      <div className="text-center py-4">
-        <h1>
-          <span className="text-danger">Contact</span>
-          <span> Us</span>
-        </h1>
-      </div>
+      <Flip top cascade>
+        <div className="text-center py-4">
+          <h1>
+            <span className="text-danger">Contact</span>
+            <span> Us</span>
+          </h1>
+        </div>
+      </Flip>
       <Container>
         <Row className="align-items-center">
           <Col sm={12} md={6}>
-            <div>
-              <img className="w-100" src={image} alt="" />
-            </div>
+            <Fade left cascade>
+              <div>
+                <img className="w-100" src={image} alt="" />
+              </div>
+            </Fade>
           </Col>
           <Col sm={12} md={6}>
-            <Form>
-              <FloatingLabel
-                controlId="floatingInput"
-                label="Enter Email address"
-                className="mb-3"
-              >
-                <Form.Control type="email" placeholder="name@example.com" />
-              </FloatingLabel>
-              <FloatingLabel
-                controlId="floatingPassword"
-                label="Enter Your subject"
-                className="mb-3"
-              >
-                <Form.Control type="text" placeholder="Password" />
-              </FloatingLabel>
-              <FloatingLabel
-                controlId="floatingTextarea2"
-                label="Enter Your Message"
-              >
-                <Form.Control
-                  as="textarea"
-                  placeholder="Leave a comment here"
-                  style={{ height: "100px" }}
+            <Fade right cascade>
+              <Form>
+                <FloatingLabel
+                  controlId="floatingInput"
+                  label="Enter Email address"
+                  className="mb-3"
+                >
+                  <Form.Control type="email" placeholder="name@example.com" />
+                </FloatingLabel>
+                <FloatingLabel
+                  controlId="floatingPassword"
+                  label="Enter Your subject"
+                  className="mb-3"
+                >
+                  <Form.Control type="text" placeholder="Password" />
+                </FloatingLabel>
+                <FloatingLabel
+                  controlId="floatingTextarea2"
+                  label="Enter Your Message"
+                >
+                  <Form.Control
+                    as="textarea"
+                    placeholder="Leave a comment here"
+                    style={{ height: "100px" }}
+                  />
+                </FloatingLabel>
+                <input
+                  className="btn btn-danger d-block w-100 mt-5"
+                  type="submit"
                 />
-              </FloatingLabel>
-            </Form>
+              </Form>
+            </Fade>
           </Col>
         </Row>
       </Container>

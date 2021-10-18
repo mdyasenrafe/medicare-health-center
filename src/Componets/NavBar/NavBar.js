@@ -30,8 +30,8 @@ const NavBar = () => {
             <LinkContainer to="/services">
               <Nav.Link>Services</Nav.Link>
             </LinkContainer>
-            <LinkContainer to="/our-team">
-              <Nav.Link>Our Team</Nav.Link>
+            <LinkContainer to="/appointment">
+              <Nav.Link>Appointment</Nav.Link>
             </LinkContainer>
             <LinkContainer to="/location">
               <Nav.Link>Location</Nav.Link>
