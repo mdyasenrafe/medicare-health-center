@@ -13,12 +13,12 @@ const Contact = () => {
       </div>
       <Container>
         <Row className="align-items-center">
-          <Col sm={12} lg={6}>
+          <Col sm={12} md={6}>
             <div>
               <img className="w-100" src={image} alt="" />
             </div>
           </Col>
-          <Col sm={12} lg={6}>
+          <Col sm={12} md={6}>
             <Form>
               <FloatingLabel
                 controlId="floatingInput"

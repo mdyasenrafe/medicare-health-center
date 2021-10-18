@@ -3,7 +3,6 @@ import { Card, Col } from "react-bootstrap";
 
 const SingleLocation = (props) => {
   const { name, photo, addres, number, website } = props.data;
-  console.log(props.data);
   return (
     <Col>
       <Card className="border-0  h-100 shadow p-3">

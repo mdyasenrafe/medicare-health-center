@@ -12,46 +12,49 @@ import Footer from "./Componets/Footer/Footer";
 import Signup from "./Componets/Signup/Signup";
 import Login from "./Componets/Login/Login";
 import Contact from "./Componets/HomePage/Contact/Contact";
+import AuthProvider from "./Context/AuthProvider";
 
 function App() {
   return (
     <>
-      <Router>
-        <NavBar></NavBar>
-        <Switch>
-          <Route path="/home">
-            <Home></Home>
-          </Route>
-          <Route path="/about">
-            <About></About>
-          </Route>
-          <Route path="/services">
-            <Services></Services>
-          </Route>
-          <Route path="/location">
-            <Locations></Locations>
-          </Route>
-          <Route path="/contact">
-            <Contact></Contact>
-          </Route>
-          <Route path="/signup">
-            <Signup></Signup>
-          </Route>
-          <Route path="/signin">
-            <Login></Login>
-          </Route>
-          <Route path="/service/:key">
-            <DetailsPage></DetailsPage>
-          </Route>
-          <Route exact path="/">
-            <Home></Home>
-          </Route>
-          <Route path="*">
-            <NotFound></NotFound>
-          </Route>
-        </Switch>
-        <Footer></Footer>
-      </Router>
+      <AuthProvider>
+        <Router>
+          <NavBar></NavBar>
+          <Switch>
+            <Route path="/home">
+              <Home></Home>
+            </Route>
+            <Route path="/about">
+              <About></About>
+            </Route>
+            <Route path="/services">
+              <Services></Services>
+            </Route>
+            <Route path="/location">
+              <Locations></Locations>
+            </Route>
+            <Route path="/contact">
+              <Contact></Contact>
+            </Route>
+            <Route path="/signup">
+              <Signup></Signup>
+            </Route>
+            <Route path="/signin">
+              <Login></Login>
+            </Route>
+            <Route path="/service/:key">
+              <DetailsPage></DetailsPage>
+            </Route>
+            <Route exact path="/">
+              <Home></Home>
+            </Route>
+            <Route path="*">
+              <NotFound></NotFound>
+            </Route>
+          </Switch>
+          <Footer></Footer>
+        </Router>
+      </AuthProvider>
     </>
   );
 }

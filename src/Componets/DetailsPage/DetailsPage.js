@@ -43,7 +43,7 @@ const DetailsPage = () => {
           </h1>
           <p>{findService?.treatment}</p>
         </div>
-        <div className="text-center mt-4">
+        <div className="text-center my-4">
           <button className="btn btn-danger">Book Your Appoinmenet</button>
         </div>
       </Container>
