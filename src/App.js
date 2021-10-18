@@ -13,6 +13,7 @@ import Signup from "./Componets/Signup/Signup";
 import Login from "./Componets/Login/Login";
 import Contact from "./Componets/HomePage/Contact/Contact";
 import AuthProvider from "./Context/AuthProvider";
+import PrivateRoute from "./Componets/PrivateRoute/PrivateRoute";
 
 function App() {
   return (
@@ -42,9 +43,9 @@ function App() {
             <Route path="/signin">
               <Login></Login>
             </Route>
-            <Route path="/service/:key">
+            <PrivateRoute path="/service/:key">
               <DetailsPage></DetailsPage>
-            </Route>
+            </PrivateRoute>
             <Route exact path="/">
               <Home></Home>
             </Route>

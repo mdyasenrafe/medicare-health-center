@@ -14,13 +14,13 @@ const Signup = () => {
   } = useForm();
   // get value from useAuth
   const {
-    user,
     setUser,
     error,
     setError,
     setIsLoading,
     createAceountWithEmail,
     updateProfileEmail,
+    gogleSignin,
   } = UseAuth();
 
   const password = useRef({});
@@ -29,6 +29,27 @@ const Signup = () => {
   let history = useHistory();
   let location = useLocation();
   const redirectUrl = location.pathname?.state?.from || "/home";
+
+  //handle gogle sign in
+  const handleGogleSignin = () => {
+    gogleSignin()
+      .then((result) => {
+        history.push(redirectUrl);
+        setError("");
+        setIsLoading(false);
+        setUser(result.user);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        setError(errorMessage);
+        console.log(error.message);
+        setUser({});
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
+
   const onSubmit = (data) => {
     console.log(data);
     createAceountWithEmail(data.email, data.password)
@@ -40,6 +61,7 @@ const Signup = () => {
         setUser(user);
       })
       .catch((error) => {
+        setUser({});
         const errorMessage = error.message;
         console.log(errorMessage);
         setError(errorMessage);
@@ -71,7 +93,7 @@ const Signup = () => {
                 <span className="text-danger my-3">This field is required</span>
               )}
               <FloatingLabel
-                controlId="floatingInput"
+                controlId="floatingInput1"
                 label="Enter Your Email Address"
                 className="mb-3"
               >
@@ -121,7 +143,7 @@ const Signup = () => {
                 </span>
               )}
               <FloatingLabel
-                controlId="floatingPassword"
+                controlId="floatingPassword1"
                 label="Enter Your Re-Password"
                 className="Enter Your Password"
               >
@@ -160,7 +182,10 @@ const Signup = () => {
               <h4>Or</h4>
             </div>
             <div>
-              <button className="btn btn-danger rounded w-100 d-block">
+              <button
+                onClick={handleGogleSignin}
+                className="btn btn-danger rounded w-100 d-block"
+              >
                 <i className="fab fa-google"></i>
                 <span className="ms-4">Sign in With Google</span>
               </button>

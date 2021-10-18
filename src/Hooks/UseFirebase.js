@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import firebaseInitAuth from "../Firebase/firbase.init";
 import {
+  GoogleAuthProvider,
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
   updateProfile,
+  signInWithPopup,
 } from "firebase/auth";
 
 firebaseInitAuth();
@@ -15,23 +17,18 @@ const UseFirebase = () => {
   const [user, setUser] = useState({});
   const [error, setError] = useState("");
   const [firebaseError, setFirebaseError] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const auth = getAuth();
+  const gogleSignin = () => {
+    const googleProvider = new GoogleAuthProvider();
+    return signInWithPopup(auth, googleProvider);
+  };
 
   // create aceount with email
   const createAceountWithEmail = (email, password) => {
     setIsLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
-    // .then((result) => {
-    //   setUser(result.user);
-    //   updataeUser(result.user.displayName);
-
-    // })
-    // .catch((error) => {
-    //   setError(error.message);
-    // })
-    // .finally(() => setIsLoading(false));
   };
 
   // sign with emaial
@@ -89,6 +86,7 @@ const UseFirebase = () => {
     signWithEmail,
     logOut,
     updateProfileEmail,
+    gogleSignin,
   };
 };
 

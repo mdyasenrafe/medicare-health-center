@@ -1,8 +1,8 @@
 import React from "react";
-import { set, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { Container, Form, Row, Col, FloatingLabel } from "react-bootstrap";
 import image from "../../Images/signin.png";
-import { Link } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import UseAuth from "../../Hooks/UseAuth";
 const Login = () => {
   const {
@@ -10,10 +10,34 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { setUser, error, setError, setIsLoading, signWithEmail } = UseAuth();
+  const { setUser, error, setError, setIsLoading, signWithEmail, gogleSignin } =
+    UseAuth();
+  let history = useHistory();
+  let location = useLocation();
+  const redirectUrl = location.state?.from || "/home";
+
+  const handleGogleSignin = () => {
+    gogleSignin()
+      .then((result) => {
+        history.push(redirectUrl);
+        setError("");
+        setIsLoading(false);
+        setUser(result.user);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        setError(errorMessage);
+        console.log(error.message);
+        setUser({});
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
   const onSubmit = (data) => {
     signWithEmail(data.email, data.password)
       .then((result) => {
+        history.push(redirectUrl);
         setUser(result?.user);
         setError("");
         setIsLoading(false);
@@ -80,7 +104,10 @@ const Login = () => {
               <h4>Or</h4>
             </div>
             <div>
-              <button className="btn btn-danger rounded w-100 d-block">
+              <button
+                onClick={handleGogleSignin}
+                className="btn btn-danger rounded w-100 d-block"
+              >
                 <i className="fab fa-google"></i>
                 <span className="ms-4">Sign in With Google</span>
               </button>
