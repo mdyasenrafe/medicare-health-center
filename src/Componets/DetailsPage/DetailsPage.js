@@ -1,12 +1,12 @@
 import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { useParams } from "react-router";
 import UseService from "../../Hooks/UseService";
 
 const DetailsPage = () => {
-  const { services, setServices } = UseService();
+  const { services } = UseService();
   const { key } = useParams();
-  const findService = services.find((service) => service.key == key);
+  const findService = services.find((service) => service.key === key);
   return (
     <section>
       <Container>

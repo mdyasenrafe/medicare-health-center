@@ -31,12 +31,14 @@ const NavBar = () => {
             <LinkContainer to="/our-team">
               <Nav.Link>Our Team</Nav.Link>
             </LinkContainer>
+            <LinkContainer to="/location">
+              <Nav.Link>Location</Nav.Link>
+            </LinkContainer>
             <LinkContainer to="/contact">
               <Nav.Link>Contact</Nav.Link>
             </LinkContainer>
-
             <LinkContainer to="/signin">
-              <Nav.Link>Log in</Nav.Link>
+              <Nav.Link>Sign in</Nav.Link>
             </LinkContainer>
             <LinkContainer to="/signup">
               <Nav.Link>Sign Up</Nav.Link>

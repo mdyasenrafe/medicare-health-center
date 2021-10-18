@@ -12,11 +12,11 @@ const About = () => {
             <span> Us</span>
           </h1>
         </div>
-        <Row className="align-items-center">
+        <Row className="align-items-center px-4 px-md-0">
           <Col sm={12} lg={6}>
             <div>
               <p>
-                Medicare-Health-Center is part of Evercare Group, present in
+                Medicare-Health-Center is part of Medicare Group, present in
                 over 25 cities, with 30+ hospitals, 15 clinics and 50+
                 diagnostic centers across 2 continents, in their mission to
                 provide quality healthcare in emerging markets.
@@ -36,8 +36,8 @@ const About = () => {
               </p>
             </div>
           </Col>
-          <Col lg={12} lg={6}>
-            <div>
+          <Col sm={12} lg={6}>
+            <div className="mt-5 mt-md-0">
               <img className="w-100" src={img} alt="" />
             </div>
           </Col>

@@ -6,7 +6,7 @@ import SingleService from "../SingleService/SingleService";
 const Services = () => {
   const { services } = UseService();
   return (
-    <section>
+    <section className="container">
       <div className="py-5 text-center">
         <h1>
           <span>Our </span>

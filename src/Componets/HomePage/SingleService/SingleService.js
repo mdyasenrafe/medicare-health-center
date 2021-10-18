@@ -9,12 +9,16 @@ const SingleService = (props) => {
       <Card className="h-100 border-0 text-center shadow-lg">
         <Card.Img height="350" variant="top" src={photo} />
         <Card.Body>
-          <Card.Title>{name}</Card.Title>
+          <Card.Title className="cursor-pointor text-primary">
+            {name}
+          </Card.Title>
           <Card.Text>{shortDescription}</Card.Text>
+        </Card.Body>
+        <Card.Footer className="border-0 bg-light">
           <Link to={`/service/${key}`}>
             <button className="btn btn-danger">See More</button>
           </Link>
-        </Card.Body>
+        </Card.Footer>
       </Card>
     </Col>
   );
