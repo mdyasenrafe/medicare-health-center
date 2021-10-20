@@ -17,7 +17,7 @@ const Locations = () => {
           <span className="text-danger">Locations</span>
         </h1>
       </div>
-      <Row xs={1} md={2} lg={3} xxl={4} className="g-4">
+      <Row xs={1} md={2} lg={3} xxl={4} className="g-4 px-3 px-md-3">
         {locations.map((location) => (
           <SingleLocation data={location} key={location.id}></SingleLocation>
         ))}

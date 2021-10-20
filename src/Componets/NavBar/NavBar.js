@@ -40,7 +40,7 @@ const NavBar = () => {
               <Nav.Link>Contact</Nav.Link>
             </LinkContainer>
             {user?.displayName ? (
-              <div className="d-flex align-items-center ms-3">
+              <div className="d-flex align-items-center ms-0 ms-lg-3">
                 <span>{user?.displayName}</span>
                 <button
                   onClick={logOut}

@@ -19,6 +19,13 @@ const About = () => {
         <Row className="align-items-center px-4 px-md-0">
           <Col sm={12} lg={6}>
             <Fade left cascade>
+              <div className="mb-5 mb-md-0 text-center">
+                <img className="w-100" src={img} alt="" />
+              </div>
+            </Fade>
+          </Col>
+          <Col sm={12} lg={6}>
+            <Fade right cascade>
               <div>
                 <p>
                   Medicare-Health-Center is part of Medicare Group, present in
@@ -40,13 +47,6 @@ const About = () => {
                   the hospitals and has become a priority for healthcare
                   organizations across the world.
                 </p>
-              </div>
-            </Fade>
-          </Col>
-          <Col sm={12} lg={6}>
-            <Fade right cascade>
-              <div className="mt-5 mt-md-0">
-                <img className="w-100" src={img} alt="" />
               </div>
             </Fade>
           </Col>

@@ -6,7 +6,7 @@ const SingleService = (props) => {
   const { photo, name, shortDescription, key } = props.data;
   return (
     <Col>
-      <Card className="h-100 border-0 text-center shadow-lg">
+      <Card className="h-100 border-0 text-center shadow-lg p-3">
         <Card.Img height="350" variant="top" src={photo} />
         <Card.Body>
           <Card.Title className="cursor-pointor text-primary">

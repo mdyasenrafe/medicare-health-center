@@ -70,7 +70,7 @@ const Signup = () => {
       .finally(() => setIsLoading(false));
   };
   return (
-    <section className="py-5">
+    <section className="py-5 px-4 px-md-0">
       <Container>
         <div className="text-center pb-5">
           <h1>
@@ -79,7 +79,7 @@ const Signup = () => {
           </h1>
         </div>
         <Row className="align-items-center">
-          <Col sm={12} md={6}>
+          <Col sm={12} md={6} className="text-center">
             <Fade left cascade>
               <img src={img} alt="" />
             </Fade>

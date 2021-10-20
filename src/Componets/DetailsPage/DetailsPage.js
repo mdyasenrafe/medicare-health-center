@@ -8,7 +8,7 @@ const DetailsPage = () => {
   const { key } = useParams();
   const findService = services.find((service) => service.key === key);
   return (
-    <section>
+    <section className="px-4 px-md-0">
       <Container>
         <div className="py-4">
           <h1 className="pb-4">

@@ -6,7 +6,7 @@ import image from "../../../Images/contact.png";
 
 const Contact = () => {
   return (
-    <section className="py-5">
+    <section className="py-5 px-4 px-md-0">
       <Flip top cascade>
         <div className="text-center py-4">
           <h1>
@@ -17,7 +17,7 @@ const Contact = () => {
       </Flip>
       <Container>
         <Row className="align-items-center">
-          <Col sm={12} md={6}>
+          <Col sm={12} md={6} className="text-center">
             <Fade left cascade>
               <div>
                 <img className="w-100" src={image} alt="" />
@@ -26,7 +26,7 @@ const Contact = () => {
           </Col>
           <Col sm={12} md={6}>
             <Fade right cascade>
-              <Form>
+              <Form className="mt-5">
                 <FloatingLabel
                   controlId="floatingInput"
                   label="Enter Email address"

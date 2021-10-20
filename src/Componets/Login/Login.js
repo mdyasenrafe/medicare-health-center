@@ -51,7 +51,7 @@ const Login = () => {
       .finally(() => setIsLoading(false));
   };
   return (
-    <section className="py-5">
+    <section className="py-5 px-4 px-md-4">
       <Container>
         <div className="text-center pb-5">
           <h1>
@@ -60,7 +60,7 @@ const Login = () => {
           </h1>
         </div>
         <Row className="align-items-center flex-row-reverse">
-          <Col sm={12} md={6}>
+          <Col sm={12} md={6} className="text-center">
             <Fade right cascade>
               <img className="w-100 pb-5" src={image} alt="" />
             </Fade>
